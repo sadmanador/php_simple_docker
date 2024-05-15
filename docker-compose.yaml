@@ -1,0 +1,31 @@
+services:  # Define the services (containers) for your application
+
+  # Service 1: Apache server with PHP
+  web:  # Service name
+    image: php:apache  # Docker image to use for this service
+    ports:
+      - "8080:80"  # Map host port 8080 to container port 80
+    volumes:
+      - ./src:/var/www/html  # Mount the local project directory to the container
+    depends_on:
+      - db  # Specify dependency on the database service
+
+  # Service 2: MySQL database
+  db:
+    image: mysql
+    ports:
+      - "3306:3306"  # Map host port 3306 to container port 3306
+    volumes:
+      - db_data:/var/lib/mysql  # Mount a volume to persist database data
+    restart: always  # Restart policy for the container
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+
+networks:  # Define networks for your services to communicate
+  default:
+
+volumes:  # Define volumes for your services to persist data
+  db_data:
