@@ -4,7 +4,7 @@ services:  # Define the services (containers) for your application
   web:  # Service name
     image: php:apache  # Docker image to use for this service
     ports:
-      - "8080:80"  # Map host port 8080 to container port 80
+      - "80:80"  # Map host port 8080 to container port 80
     volumes:
       - ./src:/var/www/html  # Mount the local project directory to the container
     depends_on:
