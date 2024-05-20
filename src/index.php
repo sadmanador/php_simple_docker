@@ -1,3 +1,3 @@
 <?php
-    echo"<h1>Vaxin will be deployed here</h1>";
+    echo"<h1>Vaxin.dghs.gov.bd is under process of deployment</h1>";
 ?>
